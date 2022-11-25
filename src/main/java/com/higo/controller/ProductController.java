@@ -1,5 +1,6 @@
 package com.higo.controller;
 
+import cn.hutool.json.JSONObject;
 import com.github.pagehelper.PageInfo;
 
 import com.higo.common.ApiRestResponse;
@@ -9,9 +10,7 @@ import com.higo.service.ProductService;
 import io.swagger.annotations.ApiOperation;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 /**
  * 描述：     前台商品Controller
@@ -22,16 +21,20 @@ public class ProductController {
     @Autowired
     ProductService productService;
 
-    @ApiOperation("상품상세정보")
-    @GetMapping("product/detail")
-    public ApiRestResponse detail(@RequestParam Integer id) {
+    @ApiOperation("product details")
+    @PostMapping("product/detail")
+    public ApiRestResponse detail(@RequestBody JSONObject json) {
+        Integer id = json.getInt("id");
         Product product = productService.detail(id);
         return ApiRestResponse.success(product);
     }
 
-    @ApiOperation("상품상세정보")
-    @GetMapping("product/list")
-    public ApiRestResponse list(ProductListReq productListReq) {
+    @ApiOperation("product details")
+    @PostMapping("product/list")
+    public ApiRestResponse list(@RequestBody JSONObject json){
+        ProductListReq productListReq = new ProductListReq();
+        productListReq.setPageNum(json.getInt("pagenum"));
+        productListReq.setPageSize(json.getInt("pagesize"));
         PageInfo list = productService.list(productListReq);
         return ApiRestResponse.success(list);
     }

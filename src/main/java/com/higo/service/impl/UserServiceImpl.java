@@ -1,14 +1,12 @@
 package com.higo.service.impl;
 
+import cn.hutool.crypto.digest.MD5;
 import com.higo.exception.ImoocMallException;
 import com.higo.exception.ImoocMallExceptionEnum;
-import com.imooc.anti.Constant;
-import com.imooc.anti.MD5Utils;
 
 import com.higo.model.dao.UserMapper;
 import com.higo.model.pojo.User;
 import com.higo.service.UserService;
-import java.security.NoSuchAlgorithmException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -29,9 +27,8 @@ public class UserServiceImpl implements UserService {
 
 
     @Override
-    public User getUser() {
-        return userMapper.selectByPrimaryKey(1);
-
+    public User getUser(Integer id) {
+        return userMapper.selectByPrimaryKey(id);
     }
 
     @Override
@@ -45,11 +42,9 @@ public class UserServiceImpl implements UserService {
         //写到数据库
         User user = new User();
         user.setUsername(userName);
-        try {
-            user.setPassword(MD5Utils.getMD5Str(password, Constant.ICODE));
-        } catch (NoSuchAlgorithmException e) {
-            e.printStackTrace();
-        }
+
+            user.setPassword(MD5.create().digestHex(password));
+
         int count = userMapper.insertSelective(user);
         if (count == 0) {
             throw new ImoocMallException(ImoocMallExceptionEnum.INSERT_FAILED);
@@ -58,13 +53,8 @@ public class UserServiceImpl implements UserService {
 
     @Override
     public User login(String userName, String password) throws ImoocMallException {
-        String md5Password = null;
-        try {
-            md5Password = MD5Utils.getMD5Str(password, Constant.ICODE);
-        } catch (NoSuchAlgorithmException e) {
-            e.printStackTrace();
-        }
-        User user = userMapper.selectLogin(userName, md5Password);
+//        String md5Password = MD5.create().digestHex(password);
+        User user = userMapper.selectLogin(userName, password);
         if (user == null) {
             throw new ImoocMallException(ImoocMallExceptionEnum.WRONG_PASSWORD);
         }

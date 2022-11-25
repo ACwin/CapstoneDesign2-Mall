@@ -19,9 +19,7 @@
     from higo_category
     where id = #{id,jdbcType=INTEGER}
   </select>
-    <select id="selectByName" resultType="com.higo.model.pojo.Category"></select>
-  <select id="selectList" resultType="com.higo.model.pojo.Category"></select>
-  <select id="selectCategoriesByParentId" resultType="com.higo.model.pojo.Category"></select>
+
   <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
     delete from higo_category
     where id = #{id,jdbcType=INTEGER}
@@ -117,4 +115,21 @@
       update_time = #{updateTime,jdbcType=TIMESTAMP}
     where id = #{id,jdbcType=INTEGER}
   </update>
+  <select id="selectByName" parameterType="java.lang.String" resultMap="BaseResultMap">
+    select
+    <include refid="Base_Column_List"/>
+    from higo_category
+    where name = #{name,jdbcType=VARCHAR}
+  </select>
+  <select id="selectList" resultMap="BaseResultMap">
+    select
+    <include refid="Base_Column_List"/>
+    from higo_category
+  </select>
+  <select id="selectCategoriesByParentId" resultMap="BaseResultMap" parameterType="int">
+    select
+    <include refid="Base_Column_List"/>
+    from higo_category
+    where parent_id = #{parentId}
+  </select>
 </mapper>

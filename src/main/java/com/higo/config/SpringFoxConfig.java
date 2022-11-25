@@ -9,10 +9,13 @@ import springfox.documentation.service.ApiInfo;
 import springfox.documentation.spi.DocumentationType;
 import springfox.documentation.spring.web.plugins.Docket;
 
+/**
+ * @author acw
+ */
 @Configuration
 public class SpringFoxConfig {
 
-    //访问http://localhost:8083/swagger-ui.html可以看到API文档
+
     @Bean
     public Docket api() {
         return new Docket(DocumentationType.SWAGGER_2)

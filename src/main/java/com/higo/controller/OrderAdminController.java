@@ -21,7 +21,7 @@ public class OrderAdminController {
     OrderService orderService;
 
     @GetMapping("admin/order/list")
-    @ApiOperation("관리자 주문서 목록")
+    @ApiOperation("Admin order list")
     public ApiRestResponse listForAdmin(@RequestParam Integer pageNum,
             @RequestParam Integer pageSize) {
         PageInfo pageInfo = orderService.listForAdmin(pageNum, pageSize);
@@ -32,7 +32,7 @@ public class OrderAdminController {
      * 发货。订单状态流程：0用户已取消，10未付款，20已付款，30已发货，40交易完成
      */
     @PostMapping("admin/order/delivered")
-    @ApiOperation("관리원이 화물을 발송하다")
+    @ApiOperation("Admin Shipping")
     public ApiRestResponse delivered(@RequestParam String orderNo) {
         orderService.deliver(orderNo);
         return ApiRestResponse.success();
@@ -42,7 +42,7 @@ public class OrderAdminController {
      * 完结订单。订单状态流程：0用户已取消，10未付款，20已付款，30已发货，40交易完成。管理员和用户都可以调用
      */
     @PostMapping("order/finish")
-    @ApiOperation("주문 완료")
+    @ApiOperation("complete order")
     public ApiRestResponse finish(@RequestParam String orderNo) {
         orderService.finish(orderNo);
         return ApiRestResponse.success();

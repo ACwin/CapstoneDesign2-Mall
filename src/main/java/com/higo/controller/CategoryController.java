@@ -1,5 +1,6 @@
 package com.higo.controller;
 
+import cn.hutool.json.JSONObject;
 import com.github.pagehelper.PageInfo;
 
 import com.higo.common.ApiRestResponse;
@@ -19,11 +20,7 @@ import javax.validation.Valid;
 import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.bind.annotation.*;
 
 /**
  * 描述：     目录Controller
@@ -40,7 +37,7 @@ public class CategoryController {
     /**
      * 后台添加目录
      */
-    @ApiOperation("백 엔드 디렉토리 추가")
+    @ApiOperation("Add directory in the background")
     @PostMapping("admin/category/add")
     @ResponseBody
     public ApiRestResponse addCategory(HttpSession session,
@@ -60,7 +57,7 @@ public class CategoryController {
         }
     }
 
-    @ApiOperation("백 엔드 업데이트 디렉토리")
+    @ApiOperation("Background update directory")
     @PostMapping("admin/category/update")
     @ResponseBody
     public ApiRestResponse updateCategory(@Valid @RequestBody UpdateCategoryReq updateCategoryReq,
@@ -82,15 +79,16 @@ public class CategoryController {
         }
     }
 
-    @ApiOperation("백 엔드 디렉토리 삭제")
+    @ApiOperation("Background delete directory")
     @PostMapping("admin/category/delete")
     @ResponseBody
-    public ApiRestResponse deleteCategory(@RequestParam Integer id) {
+    public ApiRestResponse deleteCategory(@RequestBody JSONObject json) {
+        Integer id = json.getInt("id");
         categoryService.delete(id);
         return ApiRestResponse.success();
     }
 
-    @ApiOperation("백 엔드 디렉터리 목록")
+    @ApiOperation("Background directory list")
     @GetMapping("admin/category/list")
     @ResponseBody
     public ApiRestResponse listCategoryForAdmin(@RequestParam Integer pageNum,@RequestParam Integer pageSize) {
@@ -98,11 +96,13 @@ public class CategoryController {
         return ApiRestResponse.success(pageInfo);
     }
 
-    @ApiOperation("프런트 디렉터리 목록")
+    @ApiOperation("List of frontend directories")
     @GetMapping("category/list")
     @ResponseBody
     public ApiRestResponse listCategoryForCustomer() {
         List<CategoryVO> categoryVOS = categoryService.listCategoryForCustomer(0);
         return ApiRestResponse.success(categoryVOS);
     }
+
+
 }

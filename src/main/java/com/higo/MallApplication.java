@@ -15,6 +15,7 @@ import springfox.documentation.swagger2.annotations.EnableSwagger2;
  */
 @SpringBootApplication
 @MapperScan(basePackages = "com.higo.model.dao")
+@EnableSwagger2
 public class MallApplication {
 
     public static void main(String[] args) {

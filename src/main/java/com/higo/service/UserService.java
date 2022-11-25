@@ -12,7 +12,7 @@ import com.higo.model.pojo.User;
 
 public interface UserService {
 
-    User getUser();
+    User getUser(Integer id);
 
     void register(String userName, String password) throws ImoocMallException;
 

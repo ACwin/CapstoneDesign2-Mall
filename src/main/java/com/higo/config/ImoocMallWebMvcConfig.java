@@ -2,12 +2,14 @@ package com.higo.config;
 
 import com.higo.common.Constant;
 
+import org.springframework.boot.SpringBootConfiguration;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.web.servlet.config.annotation.CorsRegistry;
 import org.springframework.web.servlet.config.annotation.ResourceHandlerRegistry;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 
 /**
- * 描述：     配置地址映射
+ * 描述：     配置地址映射和跨域
  */
 @Configuration
 public class ImoocMallWebMvcConfig implements WebMvcConfigurer {
@@ -22,4 +24,5 @@ public class ImoocMallWebMvcConfig implements WebMvcConfigurer {
         registry.addResourceHandler("/webjars/**").addResourceLocations(
                 "classpath:/META-INF/resources/webjars/");
     }
+
 }

@@ -19,9 +19,7 @@
     from higo_cart
     where id = #{id,jdbcType=INTEGER}
   </select>
-    <select id="selectList" resultType="com.higo.model.vo.CartVO"></select>
-  <select id="selectCartByUserIdAndProductId" resultType="com.higo.model.pojo.Cart"></select>
-  <select id="selectOrNot" resultType="java.lang.Integer"></select>
+
   <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
     delete from higo_cart
     where id = #{id,jdbcType=INTEGER}
@@ -116,5 +114,36 @@
       create_time = #{createTime,jdbcType=TIMESTAMP},
       update_time = #{updateTime,jdbcType=TIMESTAMP}
     where id = #{id,jdbcType=INTEGER}
+  </update>
+  <select id="selectList" resultType="com.higo.model.vo.CartVO"
+          parameterType="java.lang.Integer">
+    select
+      c.id as id,
+      p.id as productId,
+      c.user_id as userId,
+      c.quantity as quantity,
+      c.selected as selected,
+      p.price as price,
+      p.name as productName,
+      p.image as productImage
+    from higo_cart c
+           left join higo_product p on p.id = c.product_id
+    where c.user_id = #{userId}
+      and p.status = 1
+  </select>
+  <select id="selectCartByUserIdAndProductId" resultMap="BaseResultMap" parameterType="map">
+    select
+    <include refid="Base_Column_List"/>
+    from higo_cart
+    where user_id = #{userId}
+    and product_id = #{productId}
+  </select>
+  <update id="selectOrNot" parameterType="map">
+    update higo_cart
+    set selected = #{selected}
+    where user_id = #{userId}
+    <if test="productId != null">
+      and product_id = #{productId}
+    </if>
   </update>
 </mapper>

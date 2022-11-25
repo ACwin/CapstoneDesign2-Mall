@@ -1,5 +1,6 @@
 package com.higo.controller;
 
+import cn.hutool.json.JSONObject;
 import com.github.pagehelper.PageInfo;
 
 import com.higo.common.ApiRestResponse;
@@ -85,7 +86,7 @@ public class ProductAdminController {
         return effectiveURI;
     }
 
-    @ApiOperation("백그라운드 업데이트 상품")
+    @ApiOperation("Background update products")
     @PostMapping("/admin/product/update")
     public ApiRestResponse updateProduct(@Valid @RequestBody UpdateProductReq updateProductReq) {
         Product product = new Product();
@@ -94,14 +95,15 @@ public class ProductAdminController {
         return ApiRestResponse.success();
     }
 
-    @ApiOperation("백그라운드 항목 삭제")
+    @ApiOperation("Background Delete product")
     @PostMapping("/admin/product/delete")
-    public ApiRestResponse deleteProduct(@RequestParam Integer id) {
+    public ApiRestResponse deleteProduct(@RequestBody JSONObject json) {
+        Integer id = json.getInt("id");
         productService.delete(id);
         return ApiRestResponse.success();
     }
 
-    @ApiOperation("백그라운드 로트 스탠드 인터페이스")
+    @ApiOperation("Background batch unloading interface")
     @PostMapping("/admin/product/batchUpdateSellStatus")
     public ApiRestResponse batchUpdateSellStatus(@RequestParam Integer[] ids,
             @RequestParam Integer sellStatus) {
@@ -109,7 +111,7 @@ public class ProductAdminController {
         return ApiRestResponse.success();
     }
 
-    @ApiOperation("백그라운드 상품 목록 인터페이스")
+    @ApiOperation("Background product list interface")
     @GetMapping("/admin/product/list")
     public ApiRestResponse list(@RequestParam Integer pageNum,
             @RequestParam Integer pageSize) {

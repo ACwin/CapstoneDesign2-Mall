@@ -59,3 +59,4 @@ public class GlobalExceptionHandler {
                 .error(ImoocMallExceptionEnum.REQUEST_PARAM_ERROR.getCode(), list.toString());
     }
 }
+

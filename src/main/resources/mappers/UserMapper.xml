@@ -14,13 +14,12 @@
     id, username, `password`, personalized_signature, `role`, create_time, update_time
   </sql>
   <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
-    select 
+    select
     <include refid="Base_Column_List" />
     from higo_user
     where id = #{id,jdbcType=INTEGER}
   </select>
-    <select id="selectByName" resultType="com.higo.model.pojo.User"></select>
-  <select id="selectLogin" resultType="com.higo.model.pojo.User"></select>
+
   <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
     delete from higo_user
     where id = #{id,jdbcType=INTEGER}
@@ -116,4 +115,17 @@
       update_time = #{updateTime,jdbcType=TIMESTAMP}
     where id = #{id,jdbcType=INTEGER}
   </update>
+  <select id="selectByName" parameterType="java.lang.String" resultMap="BaseResultMap">
+    select
+    <include refid="Base_Column_List"/>
+    from higo_user
+    where username = #{userName,jdbcType=VARCHAR}
+  </select>
+  <select id="selectLogin" parameterType="map" resultMap="BaseResultMap">
+    select
+    <include refid="Base_Column_List"/>
+    from higo_user
+    where username = #{userName,jdbcType=VARCHAR}
+    and password = #{password}
+  </select>
 </mapper>

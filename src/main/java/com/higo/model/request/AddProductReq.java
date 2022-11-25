@@ -12,7 +12,7 @@ public class AddProductReq {
     private String name;
 
     @NotNull(message = "상품 그림은 null이 될 수 없습니다")
-    private String image;
+    private String image="";
 
     private String detail;
 

@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8" />
+	<title>登陆</title>
+	<link rel="stylesheet" href="../assets/libs/particles/css/style.css">
+	<link rel="stylesheet" href="../assets/css/base.css">
+	<link rel="stylesheet" href="../assets/css/login.css" />
+	<link rel="stylesheet" href="../assets/libs/elementui/elementui.css">
+	<style>
+		.footer {
+			width: 100%;
+			display: flex;
+			flex-direction: column;
+			padding-left: 25%;
+		}
+		.btn {
+			width: 60%;
+		}
+	</style>
+</head>
+<body>
+	<div id="particles-js"></div>
+	<div id="app">
+		<div id="wrapper">
+			<div class="header">
+				<img src="../assets/img/zhihu_logo.png" />
+				<h2>与世界分享你的知识、经验和见解</h2>
+			</div>
+			<div class="form">
+				<el-form label-position="left" label-width="80px" :model="form" ref="form" :rules="formRule">
+					<el-form-item label="账号" prop="account">
+						<el-input v-model="form.account" required></el-input>
+					</el-form-item>
+					<el-form-item label="密码" prop="password">
+						<el-input v-model="form.password" required type="password"></el-input>
+					</el-form-item>
+				</el-form>
+			</div>
+			<div class="footer">
+				<el-button type="primary" class="btn" @click="login">登录</el-button>
+				<el-button type="primary" class="btn" style="margin-top: 20px;" @click="register">注册</el-button>
+			</div>
+		</div>
+	</div>
+	<script src="../assets/libs/jquery-1.12.4/jquery.min.js"></script>
+	<script src="../assets/libs/particles/particles.min.js"></script>
+	<script src="../assets/libs/particles/js/app.js"></script>
+  <script src="../assets/libs/vue.js"></script>
+	<script src="../assets/libs/elementui/elementui.js"></script>
+	<script type="module">
+    var vue = new Vue ({
+      el: '#app',
+      name: 'test',
+      data() {
+        return {
+          form: {
+						account: '',
+						password: ''
+					},
+					formRule:{
+						account: [
+								{ required: true, message: '请输入账号', trigger: 'change' },
+						],
+						password: [
+								{ required: true, message: '请输入密码', trigger: 'change' },
+						]
+					}
+        }
+      },
+      created () {
+				console.log(1);
+				$.ajax({
+					url: 'http://wthrcdn.etouch.cn/weather_mini?city=西安',
+					method: 'get',
+					success: function (res) {
+						console.log('接口返回值',res)
+					}
+				})
+      },
+			methods: {
+				login () {
+					this.$refs['form'].validate(res => {
+						if (res) {
+							// window.open('http://localhost:5501/templates/index.html','_self')
+							$.ajax({
+								url: `http://localhost:8080/login?userName=${this.form.account}&password=${this.form.password}`,
+								method: 'post',
+								data: {
+									userName: this.form.account,
+									password: this.form.password
+								},
+								success: function (res) {
+									console.log('res-============', res)
+								}
+							})
+						}
+					})
+				},
+				register () {
+					window.open('./register.html','_self')
+				}
+			}
+    })
+  </script>
+</body>
+</html>

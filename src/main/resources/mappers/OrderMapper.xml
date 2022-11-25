@@ -29,9 +29,7 @@
     from higo_order
     where id = #{id,jdbcType=INTEGER}
   </select>
-    <select id="selectByOrderNo" resultType="com.higo.model.pojo.Order"></select>
-  <select id="selectForCustomer" resultType="com.higo.model.pojo.Order"></select>
-  <select id="selectAllForAdmin" resultType="com.higo.model.pojo.Order"></select>
+
   <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
     delete from higo_order
     where id = #{id,jdbcType=INTEGER}
@@ -213,4 +211,23 @@
       update_time = #{updateTime,jdbcType=TIMESTAMP}
     where id = #{id,jdbcType=INTEGER}
   </update>
+  <select id="selectByOrderNo" resultMap="BaseResultMap" parameterType="java.lang.String">
+    select
+    <include refid="Base_Column_List"/>
+    from higo_order
+    where order_no = #{orderNo}
+  </select>
+  <select id="selectForCustomer" resultMap="BaseResultMap" parameterType="integer">
+    select
+    <include refid="Base_Column_List"/>
+    from higo_order
+    where user_id = #{userId}
+    order by create_time desc
+  </select>
+  <select id="selectAllForAdmin" resultMap="BaseResultMap">
+    select
+    <include refid="Base_Column_List"/>
+    from higo_order
+    order by create_time desc
+  </select>
 </mapper>

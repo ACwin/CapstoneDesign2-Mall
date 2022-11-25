@@ -20,6 +20,7 @@ import org.springframework.stereotype.Component;
 
 @Component
 public class Constant {
+
     public static final String HIGO_USER = "higo_user";
     public static final String SALT = "8svbsvjkweDF,.03[";
 
