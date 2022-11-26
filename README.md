@@ -8,10 +8,6 @@
 
 `HIGOmall`project is an e-commerce system, including the front-end mall system and the back-end management system, based on SpringBoot+MyBatis implementation, using Docker containerized deployment. The front-end mall system includes modules such as homepage portal, product recommendation, product search, product display, shopping cart, and order process. The background management system includes modules such as commodity management, order management, operation management, content management, statistical reports, financial management, permission management, and settings.
 
-<img width="389" alt="image" src="https://user-images.githubusercontent.com/42907149/172844838-2d8f8756-c060-4bd1-bfb5-f8dfdaba6199.png">
-<img width="387" alt="image" src="https://user-images.githubusercontent.com/42907149/172844929-ac5d55ed-af19-48e6-a880-38eb399d8778.png">
-<img width="379" alt="image" src="https://user-images.githubusercontent.com/42907149/172845136-22d1c474-ea10-4858-8c47-7b2bb5948bf2.png">
-<img width="387" alt="image" src="https://user-images.githubusercontent.com/42907149/173035735-a4109dce-56f8-4f36-a9fe-5827c722cf06.png">
 
 
 
