@@ -11,7 +11,10 @@
 
 **Front-end system:**
 <img width="1726" alt="image" src="https://user-images.githubusercontent.com/42907149/204093673-7245e27f-95c9-4434-8fdf-8943b9d9368d.png">
+<img width="1721" alt="image" src="https://user-images.githubusercontent.com/42907149/204095415-7c7d224d-3e65-4d61-b098-3e079f38a88a.png">
 <img width="1717" alt="image" src="https://user-images.githubusercontent.com/42907149/204095239-73eccbcf-16ff-4635-8cb5-e149d42901e7.png">
+<img width="1337" alt="image" src="https://user-images.githubusercontent.com/42907149/204095431-f6718b29-cd2b-4615-b76e-f37d809be5d3.png">
+
 <img width="1720" alt="image" src="https://user-images.githubusercontent.com/42907149/204095260-756c4dd9-0941-4e90-a534-14cf0235279b.png">
 <img width="1721" alt="image" src="https://user-images.githubusercontent.com/42907149/204095315-faf0b98b-1a44-4e54-93b0-4604b4b06b59.png">
 
