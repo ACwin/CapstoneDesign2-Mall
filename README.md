@@ -8,6 +8,7 @@
 
 `HIGOmall`project is an e-commerce system, including the front-end mall system and the back-end management system, based on SpringBoot+MyBatis implementation, using Docker containerized deployment. The front-end mall system includes modules such as homepage portal, product recommendation, product search, product display, shopping cart, and order process. The background management system includes modules such as commodity management, order management, operation management, content management, statistical reports, financial management, permission management, and settings.
 
+<img width="1726" alt="image" src="https://user-images.githubusercontent.com/42907149/204093673-7245e27f-95c9-4434-8fdf-8943b9d9368d.png">
 
 
 
@@ -150,6 +151,8 @@ SpringBoot + Vue + MySQL + MyBatis + Redis + MQ+ AWS ==>  HIGOmmal
 ## Setup steps
 
 ### front
+<img width="1135" alt="image" src="https://user-images.githubusercontent.com/42907149/204093525-644de554-87f2-45bf-9cc2-540886def8e3.png">
+
 
 ## Project setup
 
@@ -175,25 +178,13 @@ npm run lint
 ### Customize configuration
 
 See [Configuration Reference](https://cli.vuejs.org/config/).
-```
-
-### Lints and fixes files
-
-```
-npm run lint
-```
-
-### Customize configuration
-
-See [Configuration Reference](https://cli.vuejs.org/config/).
-
-Open your browser and enter Return: http://localhost:8080 You can see the front-end site that is rendered by the service side, of course it may be an empty data site. Specifically, you can see the article on the [API.md](https://github.com/ACwin/2022-01-Capstone-Design-1/blob/main/design%20description/API.md) interface.
 
 
 
 ### Contact 
 
 
+
 - YANG - [@ACwin](https://github.com/ACwin) - [email@uniceyang0116@gmail.com](mailto:emailuniceyang0116@gmail.com)
 
-Project Link: [https://github.com/ACwin/2022-01-Capstone-Design-1]
+Project Link: [[https://github.com/ACwin/2022-01-Capstone-Design-1](https://github.com/ACwin/CapstoneDesign2-Mall.git)]
