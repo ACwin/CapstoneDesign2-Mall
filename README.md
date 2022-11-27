@@ -29,8 +29,7 @@ High concurrency은 high performance만 추구하는것을 의미하지 않는�
 
 
 ## 시스템 설계
-
-![系统架构图](https://user-images.githubusercontent.com/42907149/204133796-dde2bfde-213f-425f-bbc4-537f3ae438ed.png)
+![系统架构图2](https://user-images.githubusercontent.com/42907149/204136231-fd04c2cd-c271-4bbd-ab37-f92e461843b4.png)
 
 ### Redis + MQ 구성도
 
