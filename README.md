@@ -203,4 +203,4 @@ See [Configuration Reference](https://cli.vuejs.org/config/).
 
 - YANG - [@ACwin](https://github.com/ACwin) - [email@uniceyang0116@gmail.com](mailto:emailuniceyang0116@gmail.com)
 
-Project Link: [[https://github.com/ACwin/2022-01-Capstone-Design-1](https://github.com/ACwin/CapstoneDesign2-Mall.git)]
+Project Link: [[https://github.com/ACwin/CapstoneDesign2-Mall](https://github.com/ACwin/CapstoneDesign2-Mall.git)]
