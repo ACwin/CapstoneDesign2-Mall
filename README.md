@@ -165,7 +165,7 @@ High concurrency은 high performance만 추구하는것을 의미하지 않는�
 ## 프로그램 및 모듈 설치
 
 
-Project Link: [[CapstoneDesign2-Mall](http://119.91.139.92:8085/#/mall)]
+# Project Link: [[CapstoneDesign2-Mall](http://119.91.139.92:8085/#/mall)]
 
 **Front-end system:**
 <img width="1726" alt="image" src="https://user-images.githubusercontent.com/42907149/204093673-7245e27f-95c9-4434-8fdf-8943b9d9368d.png">
